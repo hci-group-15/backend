@@ -29,5 +29,13 @@ go.work.sum
 .env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+
+# Swagger files
+**/swagger.json
+**/swagger.yaml
+**/swagger.yml
+
+# SQLite DB
+**/*.db

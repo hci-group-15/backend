@@ -17,9 +17,9 @@ import (
 	"github.com/gin-contrib/sessions/memstore"
 )
 
-// @title janishutz Store
+// @title backend
 // @version         1.0
-// @description     This is the backend for store.janishutz.com.
+// @description     This is the backend for <project name>.
 // @termsOfService  https://janishutz.com/legal/tos/
 //
 // @contact.name   Support
@@ -71,8 +71,7 @@ func main() {
 	// └                                               ┘
 	db := model.Init()
 	oidclogin.ConfigureFull(r, conf.Urls.BackendURL, conf.Urls.DefaultRedirect, func(userid, name, email string, c *gin.Context) {
-		// uid := db.UpdateOrCreateUser(userid, name, email)
-		uid := ""
+		uid := db.UpdateOrCreateUser(userid, name, email)
 		ses := sessions.Default(c)
 		ses.Set("userid", uid)
 		ses.Set("username", name)

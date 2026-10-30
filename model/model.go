@@ -26,6 +26,9 @@ func Init() *DBConnector {
 	// FIXME: Only used if using sqlite db
 	db.Exec("PRAGMA foreign_keys = ON")
 
+	// Users
+	db.AutoMigrate(&User{})
+
 	return &DBConnector{
 		DB: db,
 	}
