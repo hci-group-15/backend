@@ -1,0 +1,27 @@
+name: Create and publish container
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+jobs:
+  build_container:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref }}
+      - name: Login to registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build image
+        run: docker buildx build . --tag ghcr.io/hci-group-15/backend
+      - name: Publish to GitHub Container Registry
+        run: |
+          docker push ghcr.io/hci-group-15/backend
