@@ -1,7 +1,13 @@
 # backend
 
 ## Environment Variables
-Coming soon!
+```env
+DATA_DIR=<dir> # Directory to store data (sqlite db and uploads)
+FRONTEND_URL=<url to frontend>
+BACKEND_URL=<url of the application>
+DEFAULT_REDIRECT=<url to redirect to upon login>
+TEST_MODE=true # used for running the tests via bruno
+```
 
 ## Development
 > [!NOTE]

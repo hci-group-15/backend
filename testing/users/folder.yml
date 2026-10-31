@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://schema.opencollection.com/opencollection/v1.0.0.json#/$defs/Folder
+info:
+  name: auth
+  type: folder
+  seq: 1
