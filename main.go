@@ -58,13 +58,13 @@ func main() {
 	// ┌                                               ┐
 	// │                    Session                    │
 	// └                                               ┘
-	secret, ok := os.LookupEnv("STORE_SESSION_SECRET")
+	secret, ok := os.LookupEnv("SESSION_SECRET")
 	if !ok {
-		logr.Warn("Missing secret (STORE_SESSION_SECRET is unset), using unsafe default")
+		logr.Warn("Missing secret (SESSION_SECRET is unset), using unsafe default")
 		secret = "secret"
 	}
 	store := memstore.NewStore([]byte(secret))
-	r.Use(sessions.Sessions("jhid", store))
+	r.Use(sessions.Sessions("session", store))
 
 	// ┌                                               ┐
 	// │               Routes, DB, Login               │

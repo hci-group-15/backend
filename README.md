@@ -1,7 +1,12 @@
 # backend
 
 ## Environment Variables
-Coming soon!
+```env
+DATA_DIR=<dir> # Directory to store data (sqlite db and uploads)
+FRONTEND_URL=<url to frontend>
+BACKEND_URL=<url of the application>
+DEFAULT_REDIRECT=<url to redirect to upon login>
+```
 
 ## Development
 > [!NOTE]
