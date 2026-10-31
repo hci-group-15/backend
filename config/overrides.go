@@ -1,6 +1,10 @@
 package config
 
-import "os"
+import (
+	"os"
+
+	"github.com/TwiN/logr"
+)
 
 func loadEnvVarSettings(conf *Config) {
 	frontendUrl, ok := os.LookupEnv("FRONTEND_URL")
@@ -18,5 +22,12 @@ func loadEnvVarSettings(conf *Config) {
 	dataDir, ok := os.LookupEnv("DATA_DIR")
 	if ok {
 		(*conf).Datadir = dataDir
+	}
+
+	testingMode, ok := os.LookupEnv("TEST_MODE")
+	if ok && testingMode == "true" {
+		logr.Warn("Testing mode enabled")
+		(*conf).Urls.DefaultRedirect = "/"
+		(*conf).TestingMode = true
 	}
 }

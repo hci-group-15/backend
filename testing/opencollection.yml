@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://schema.opencollection.com/opencollection/v1.0.0.json
+opencollection: 1.0.0
+
+info:
+  name: HCI backend test suite
+  version: 1.0.0
+  authors:
+    - name: janishutz
+      email: development@janishutz.com
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+
+items:
+  - info:
+      type: http

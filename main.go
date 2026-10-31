@@ -81,5 +81,11 @@ func main() {
 	c := controller.NewController(db)
 	controller.AddRoutes(c, r)
 
+	if conf.TestingMode {
+		r.GET("/", func(c *gin.Context) {
+			c.JSON(200, gin.H{"success": true})
+		})
+	}
+
 	r.Run()
 }

@@ -1,4 +1,10 @@
 # Tests
-Will be using bruno, but have never done so before, so this will be a good learning experience
+To run tests, the backend needs to be running already. For CI, a backend will be spun up to test against.
+This is only run on Pull Requests into main because it takes quite a while to run.
 
-https://www.usebruno.com/
+## CI
+Testing via CI will be added at some point in the near future
+
+## Writing tests
+All tests use the OpenCollection format, see the [bruno docs](https://docs.usebruno.com/opencollection-yaml/overview)
+and the official [OpenCollection Spec](https://spec.opencollection.com/#introduction)
